@@ -1,0 +1,438 @@
+/*
+Theme Name: Codexin
+Author: Themeitems
+Author URI: #
+Description: Responsive Multipurpose WordPress Theme
+Version: 2.1.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: codexin
+Tags: corporate, portfolio, two-columns, left-sidebar, custom-colors, custom-header, featured-images, post-formats
+Copyright: (c) 2017 Themeitems.
+*/
+
+
+/**************************************
+Primary Color: #60732b
+Secondary Color: #ffc845;
+body color: rgba(56,56,56,.95);
+
+Primary Font: 'Source Sans Pro', sans-serif;
+Secondary Font: 'Oswald', sans-serif;
+Tertiary Font: 'Montserrat', sans-serif;
+
+00 global - Typography
+01 global - Colors
+02 global - Structure
+03 global - lists
+04 global - images
+05 global - shortcodes
+06 global - forms
+
+10 header
+11 header - logo
+12 header - nav
+
+20 home
+21 home - showcase
+22 Buttons
+
+30 page
+31 page - about
+32 page - contact
+
+61 social bar
+62 top bar
+
+70 sidebar
+
+80 footer
+**************************************/
+
+/**************************************
+s00 global - Typography
+**************************************/
+
+#showcase h1,
+#page_title h1 {
+    font-size: 50px;
+    line-height: 70px;
+}
+
+#nav a {
+	font-size: 15px;
+}
+#showcase {
+    position: relative;
+    margin-bottom: 80px;
+}
+
+div#showcase:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba(0, 0, 0,.5);
+}
+
+
+/************************************************************/
+
+/************************************************************
+	01 - Global Colors
+*************************************************************/
+
+
+/**
+ * Note: I have omitted any vendor-prefixes for clarity.
+ * Adding them is left as an exercise for the reader.
+ */
+header.header.headroom--not-top {
+    box-shadow: 0 0px 33px -27px #000;
+}
+.headroom {
+    will-change: transform;
+    transition: transform 200ms linear;
+}
+.headroom--pinned {
+    transform: translateY(0%);
+}
+.headroom--unpinned {
+    transform: translateY(-100%);
+}
+header.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    transition: .3s;
+}
+.admin-bar header.header {
+    top: 32px;
+}
+/* Call btn at sidebar */
+
+/* WP BASE CSS Color */
+
+.image-featured img {
+  width:100%;
+  max-width:100%;
+}
+
+.wp-caption {
+    background: #f5f5f5;
+    border: 1px solid #dedede;
+}
+
+.page-links span {
+    background: #60732b none repeat scroll 0 0;
+    border: 1px solid;
+    color: #fff;
+}
+
+
+.gallery-item a, 
+.gallery-item a:hover, 
+.gallery-item a:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: none;
+}
+
+.posts-nav {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+}
+
+.sidebar-widget {
+    border-bottom: 1px solid #ddd;
+}
+
+.advantage-list-spacing ol {
+    padding-left: 9px;
+}
+
+.advantage-list-spacing ol li {
+    margin-bottom: 20px;
+}
+
+.search .search-title {
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+.search .post-item {
+    border: 0;
+    padding-top: 40px !important;
+    margin-top: 40px;
+    padding-bottom: 0;
+    border-top: 1px dashed #ddd;
+}
+.search-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.search-content .image-featured {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin: 0 25px 0 0;
+}
+.search-content .post-details {
+    -webkit-box-flex: 0;
+    -ms-flex: 1 0 72%;
+    flex: 1 0 72%;
+    -webkit-box-shadow: 5px 5px 5px -2px rgba(85,85,85,.10);
+    box-shadow: 5px 5px 5px -2px rgba(85,85,85,.10);
+    padding: 25px;
+}
+.search #whole h2.post-title {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+.search-content .post-excerpt {
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+.search-no-results form.input-group, .error404 form.input-group {
+    max-width: 750px;
+    width: 100%;
+    margin-top: 20px;
+}
+.search-no-results .input-group .form-control, .error404 .input-group .form-control {
+    width: calc(100% - 50px) !important;
+    border: 1px solid #ccc;
+    height: 50px !important;
+}
+.search-no-results form.input-group input.submit-button, 
+.error404 form.input-group input.submit-button {
+    border: 1px solid #ccc;
+    border-left: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px;
+    width: 50px !important;
+
+}
+.search-no-results form.input-group input.submit-button, 
+.error404 form.input-group input.submit-button {
+    border: 1px solid #ccc;
+    border-left: 0;
+    height: 50px !important;
+
+}
+/**************************************
+s02 global - structure
+**************************************/
+
+.section {
+    clear: both;
+    float: none;
+    width: 100%;
+    padding-top:80px;
+    padding-bottom: 80px;
+}
+
+#content {
+	padding-top: 0;
+	padding-bottom: 70px;
+}
+
+#page_title {
+	padding-top: 65px;
+  padding-bottom: 70px;
+	background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: scroll;
+  position: relative;
+  margin-bottom: 80px;
+}
+
+#page_title::before {
+    content: "";
+    background: rgba(0,0,0,.40);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#showcase h1,
+#page_title h1 {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.thumbnail-img {
+	max-width:300px;
+}
+
+.thumbnail-img.alignleft,
+.thumbnail-img.pull-left {
+	margin-right: 20px;
+	margin-bottom: 15px;
+}
+.thumbnail-img.alignright,
+.thumbnail-img.pull-right {
+	margin-left: 20px;
+	margin-bottom: 15px;
+}
+
+/**************************************
+s03 global - lists
+**************************************/
+
+/**************************************
+s04 global - images
+**************************************/
+
+
+/**************************************
+s05 global - shortcodes
+**************************************/
+
+/**************************************
+s06 global - forms
+**************************************/
+
+input[type="search"] ,
+input[type="text"],
+input[type="url"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+select {
+    height:40px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border:0;
+    outline: none;
+}
+
+form input[type="search"] {
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	-o-border-radius: 0;
+	border-radius: 0;
+}
+
+
+/**************************************
+s10 header
+**************************************/
+
+/**************************************
+s11 header - logo
+**************************************/
+
+.logo {
+	max-width:174px;
+}
+
+@media screen and (max-width: 767px) {
+	.logo {
+		float: left;
+	}
+}
+
+/**************************************
+s12 header - nav
+**************************************/
+#nav {
+	margin-top: 20px;
+}
+.logo a.navbar-brand{
+    display: inline-block;
+    height: auto;
+}
+.header-top .logo {
+    overflow: hidden;
+    max-width: 100%;
+}
+
+/**************************************
+s13 header - Mobile Menu
+**************************************/
+
+/**************************************
+s20 home
+**************************************/
+
+/**************************************
+s21 home - showcase
+**************************************/
+
+/************************************************************
+	s22 Buttons
+*************************************************************/
+
+/**************************************
+s61 social bar
+**************************************/
+
+/**************************************
+s62 top bar
+**************************************/
+
+
+
+/**************************************
+s70 sidebar
+**************************************/
+
+.contact-widget {
+	margin: 0;
+	padding: 0;
+}
+
+.contact-widget li {
+	list-style-type: none;
+}
+
+/************************************************************
+	Misci
+*************************************************************/
+
+/**************************************
+s80 footer
+**************************************/
+
+#footer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#copyright {
+	text-align: center;
+	padding:15px;
+}
+
+#copyright p {
+	margin-bottom:0;
+}
+
+
+
