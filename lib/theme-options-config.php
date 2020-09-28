@@ -599,37 +599,37 @@
             ),
         )
     ));
-    Redux::setSection( $opt_name, array(
-        'title'            => esc_html__( 'Header Info Bar (Topbar)', 'codexin' ),
-        'id'               => 'codexin_header_infobox',
-        'subsection'       => true,
-        'customizer_width' => '500px',
-        'fields'           => array(
+    // Redux::setSection( $opt_name, array(
+    //     'title'            => esc_html__( 'Header Info Bar (Topbar)', 'codexin' ),
+    //     'id'               => 'codexin_header_infobox',
+    //     'subsection'       => true,
+    //     'customizer_width' => '500px',
+    //     'fields'           => array(
 
-            array(
-                'id'       => 'cx_text_office_time',
-                'type'     => 'text',
-                'title'    => esc_html__( 'Office Time', 'codexin' ),
-                'subtitle' => esc_html__( 'Office Time will Ggoes', 'codexin' ),
-                // 'desc'     => esc_html__( 'M', 'codexin' ),
-            ),
-            array(
-                'id'       => 'cx_text_phone',
-                'type'     => 'text',
-                'title'    => esc_html__( 'Phone ', 'codexin' ),
-                'subtitle' => esc_html__( 'Phone Number Will Display in Topbar', 'codexin' ),
-                // 'desc'     => esc_html__( 'M', 'codexin' ),
-            ),
-            array(
-                'id'       => 'cx_text_email',
-                'type'     => 'text',
-                'title'    => esc_html__( 'Email', 'codexin' ),
-                'subtitle' => esc_html__( 'Email display in Topbar', 'codexin' ),
-                // 'desc'     => esc_html__( 'M', 'codexin' ),
-            )
+    //         array(
+    //             'id'       => 'cx_text_office_time',
+    //             'type'     => 'text',
+    //             'title'    => esc_html__( 'Office Time', 'codexin' ),
+    //             'subtitle' => esc_html__( 'Office Time will Ggoes', 'codexin' ),
+    //             // 'desc'     => esc_html__( 'M', 'codexin' ),
+    //         ),
+    //         array(
+    //             'id'       => 'cx_text_phone',
+    //             'type'     => 'text',
+    //             'title'    => esc_html__( 'Phone ', 'codexin' ),
+    //             'subtitle' => esc_html__( 'Phone Number Will Display in Topbar', 'codexin' ),
+    //             // 'desc'     => esc_html__( 'M', 'codexin' ),
+    //         ),
+    //         array(
+    //             'id'       => 'cx_text_email',
+    //             'type'     => 'text',
+    //             'title'    => esc_html__( 'Email', 'codexin' ),
+    //             'subtitle' => esc_html__( 'Email display in Topbar', 'codexin' ),
+    //             // 'desc'     => esc_html__( 'M', 'codexin' ),
+    //         )
 
-        )
-    ));
+    //     )
+    // ));
     Redux::setSection( $opt_name, array(
         'title'            => esc_html__( 'Logo', 'codexin' ),
         'id'               => 'codexin_header',
@@ -637,61 +637,61 @@
         'customizer_width' => '500px',
         'fields'           => array(
 
-            array(
-                'id'       => 'cx_logo_type',
-                'type'     => 'radio',
-                'title'    => esc_html__( 'Select Logo type', 'codexin' ),
-                'subtitle' => esc_html__( 'Please select whether you want a text logo or image logo', 'codexin' ),
-                'desc'     => esc_html__( 'Select text logo or image logo', 'codexin' ),
-                'options'  => array(
-                    '1'    => __('Text Logo','codexin'),
-                    '2'    => __('Image Logo','codexin'),
-                ),
-                'default'  => '1'
-            ),
+            // array(
+            //     'id'       => 'cx_logo_type',
+            //     'type'     => 'radio',
+            //     'title'    => esc_html__( 'Select Logo type', 'codexin' ),
+            //     'subtitle' => esc_html__( 'Please select whether you want a text logo or image logo', 'codexin' ),
+            //     'desc'     => esc_html__( 'Select text logo or image logo', 'codexin' ),
+            //     'options'  => array(
+            //         '1'    => __('Text Logo','codexin'),
+            //         '2'    => __('Image Logo','codexin'),
+            //     ),
+            //     'default'  => '1'
+            // ),
 
-            array(
-                'id'       => 'cx_text_logo',
-                'required' => array('cx_logo_type', 'equals', '1'),
-                'type'     => 'textarea',
-                'title'    => esc_html__( 'Write your text logo', 'codexin' ),
-                'subtitle' => esc_html__( 'Please write text logo here', 'codexin' ),
-                'desc'     => esc_html__( 'You can write HTML code here', 'codexin' ),
-                'validate' => 'html',
-                'default'  => 'codexin',
-            ),
+            // array(
+            //     'id'       => 'cx_text_logo',
+            //     'required' => array('cx_logo_type', 'equals', '1'),
+            //     'type'     => 'textarea',
+            //     'title'    => esc_html__( 'Write your text logo', 'codexin' ),
+            //     'subtitle' => esc_html__( 'Please write text logo here', 'codexin' ),
+            //     'desc'     => esc_html__( 'You can write HTML code here', 'codexin' ),
+            //     'validate' => 'html',
+            //     'default'  => 'codexin',
+            // ),
 
-            array(
-                'id'            => 'cx_logo_color',
-                'type'          => 'color',
-                'required'      => array('cx_logo_type', 'equals', '1'),
-                'title'         => esc_html__( 'Logo Color:', 'codexin' ),
-                'subtitle'      => esc_html__( 'Please Choose the Logo Color', 'codexin' ),
-                'default'       => '#295970',
-                'output'        => array( 'header a.navbar-brand', 'header a.navbar-brand:hover' ),
-                'transparent'   => false,
-            ),
+            // array(
+            //     'id'            => 'cx_logo_color',
+            //     'type'          => 'color',
+            //     'required'      => array('cx_logo_type', 'equals', '1'),
+            //     'title'         => esc_html__( 'Logo Color:', 'codexin' ),
+            //     'subtitle'      => esc_html__( 'Please Choose the Logo Color', 'codexin' ),
+            //     'default'       => '#295970',
+            //     'output'        => array( 'header a.navbar-brand', 'header a.navbar-brand:hover' ),
+            //     'transparent'   => false,
+            // ),
 
-            array(
-                'id'            => 'cx_text_logo_typography',
-                'required'      => array('cx_logo_type', 'equals', '1'),
-                'type'          => 'typography',
-                'title'         => esc_html__( 'Typography For Text Logo', 'codexin' ),
-                'preview'       => true,
-                'letter-spacing'=> true,
-                'output'        => array( 'a.navbar-brand' ),
-                'units'         => 'px',
-                'color'         => false,
-                'google'	    => true,
-                'subtitle'      => esc_html__( 'Typography option for text logo', 'codexin' ),
-                'default'       => array(
-                    'color'       => '#fff',
-                    'font-weight' => '400',
-                    'font-family' => 'Montserrat',
-                    'google'      => true,
-                    'font-size'   => '30px',
-                ),
-            ),
+            // array(
+            //     'id'            => 'cx_text_logo_typography',
+            //     'required'      => array('cx_logo_type', 'equals', '1'),
+            //     'type'          => 'typography',
+            //     'title'         => esc_html__( 'Typography For Text Logo', 'codexin' ),
+            //     'preview'       => true,
+            //     'letter-spacing'=> true,
+            //     'output'        => array( 'a.navbar-brand' ),
+            //     'units'         => 'px',
+            //     'color'         => false,
+            //     'google'	    => true,
+            //     'subtitle'      => esc_html__( 'Typography option for text logo', 'codexin' ),
+            //     'default'       => array(
+            //         'color'       => '#fff',
+            //         'font-weight' => '400',
+            //         'font-family' => 'Montserrat',
+            //         'google'      => true,
+            //         'font-size'   => '30px',
+            //     ),
+            // ),
 
             array(
                 'id'       => 'cx_image_logo',
@@ -771,10 +771,33 @@
                 'title'       => __( 'Home Page Showcase Button URL', 'codexin' ),
                 'subtitle'    => __( 'Please enter showcase Button URL for Home Page', 'codexin' ),
                 'placeholder' => '/portfolio/',
+            ),
+          
+            array(
+                'id'          => 'opt-slides',
+                'type'        => 'slides',
+                'title'       => __('Slides Options', 'redux-framework-demo'),
+                'subtitle'    => __('Unlimited slides with drag and drop sortings.', 'redux-framework-demo'),
+                'desc'        => __('This field will store all slides values into a multidimensional array to use into a foreach loop.', 'redux-framework-demo'),
+                
+                // 'show'        => array( 'description' => false ),
             )
         )
     ));
 
+
+    // Redux::addField( 'OPT_NAME', 'SECTION_ID', array(
+    //     'id'          => 'opt-slides',
+    //     'type'        => 'slides',
+    //     'title'       => __('Slides Options', 'redux-framework-demo'),
+    //     'subtitle'    => __('Unlimited slides with drag and drop sortings.', 'redux-framework-demo'),
+    //     'desc'        => __('This field will store all slides values into a multidimensional array to use into a foreach loop.', 'redux-framework-demo')
+    //     'placeholder' => array(
+    //         'title'       => __('This is a title', 'redux-framework-demo'),
+    //         'description' => __('Description Here', 'redux-framework-demo'),
+    //         'url'         => __('Give us a link!', 'redux-framework-demo'),
+    //     ),
+    // ) );
 
     Redux::setSection( $opt_name, array(
         'title'            => esc_html__( 'Page Title', 'codexin' ),
