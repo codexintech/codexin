@@ -21,6 +21,7 @@ if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/v
     require_once( dirname( __FILE__ ) . '/vendors/ReduxFramework/ReduxCore/framework.php' );
 }
 
+
 if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/lib/theme-options-config.php' ) ) {
     require_once( dirname( __FILE__ ) . '/lib/theme-options-config.php' );
 }
