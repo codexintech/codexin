@@ -17,9 +17,9 @@ require_once 'lib/carbon-fields.php';
 
 // include Redux framework theme  options
 
-if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/vendors/ReduxFramework/ReduxCore/framework.php' ) ) {
-    require_once( dirname( __FILE__ ) . '/vendors/ReduxFramework/ReduxCore/framework.php' );
-}
+// if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/vendors/redux-framework/redux-core/framework.php' ) ) {
+//     require_once( dirname( __FILE__ ) . '/vendors/redux-framework/redux-core/framework.php' );
+// }
 
 
 if ( !isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/lib/theme-options-config.php' ) ) {
