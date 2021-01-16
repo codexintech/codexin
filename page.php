@@ -1,33 +1,35 @@
-<?php get_header() ?>
+<?php get_header(); ?>
 
 <div id="content" class="section site-content match-height ">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
 				<main id="primary" class="site-main">
-					<?php 
-					if ( have_posts() ) : 
-						while ( have_posts() ) : the_post(); ?>
+					<?php
+					if ( have_posts() ) :
+						while ( have_posts() ) :
+							the_post();
+							?>
 
-							<div id="page-<?php the_ID(); ?>" <?php post_class(array('clearfix', 'page-entry-content')); ?>>
-								<?php 
-									the_content(); 
-						            $args = array(
-						                'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'codexin' ) . '</span>',
-						                'after'       => '</div>',
-						                'link_before' => '<span>',
-						                'link_after'  => '</span>',
-						                'pagelink'    => '<span class="screen-reader-text">' . esc_html__( 'Page', 'codexin' ) . ' </span>%',
-						                'separator'   => '<span class="screen-reader-text">, </span>',
-						            );                 
-						            wp_link_pages( $args );
-								 ?>
+							<div id="page-<?php the_ID(); ?>" <?php post_class( array( 'clearfix', 'page-entry-content' ) ); ?>>
+								<?php
+									the_content();
+									$args = array(
+										'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'codexin' ) . '</span>',
+										'after'       => '</div>',
+										'link_before' => '<span>',
+										'link_after'  => '</span>',
+										'pagelink'    => '<span class="screen-reader-text">' . esc_html__( 'Page', 'codexin' ) . ' </span>%',
+										'separator'   => '<span class="screen-reader-text">, </span>',
+									);
+									wp_link_pages( $args );
+									?>
 							</div><!-- #page-## -->
 
 							<?php
-							
+
 						endwhile;
-					else : 
+					else :
 						// No posts to display
 					endif;
 					?>
@@ -44,5 +46,4 @@
 		</div><?php // #content .container .row ?>
 	</div><?php // #content .container ?>
 </div><?php // #content ?>
-<?php get_footer() ?>
-
+<?php get_footer(); ?>

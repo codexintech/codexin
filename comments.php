@@ -67,12 +67,9 @@ if ( post_password_required() ) {
 	$req = get_option( 'require_name_email' );
 	$aria_req = ( $req ? " aria-required='true'" : '' );
 
-	
-
 	comment_form(array(
 		'fields' => apply_filters( 'comment_form_default_fields', array(
-			
-			'comment_notes_after' => '',	
+			'comment_notes_after' => '',
 			'author' => '<div class="row"><div class="col-sm-4"><div class="comment-form-author"><fieldset><input id="author" name="author" type="text" placeholder="'.__( 'Name', 'codexin' ). ( $req ? ' *' : '' ).'" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></fieldset></div></div>',
 			'email' => '<div class="col-sm-4"><div class="comment-form-email"><fieldset><input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" placeholder="'. __( 'Email', 'codexin' ) . ( $req ? ' *' : '' ) .'" ' . $aria_req . ' /></fieldset></div></div>',
 			'url' => '<div class="col-sm-4"><div class="comment-form-url"><fieldset><input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" placeholder="'.__( 'Website', 'codexin' ).'" size="30" /></fieldset></div></div></div>'
@@ -82,11 +79,10 @@ if ( post_password_required() ) {
 		'comment_notes_after' => '',
 		'title_reply' => __( 'Leave a Comment', 'codexin' ),
 		'title_reply_to' => __( 'Leave a  Comment', 'codexin' ),
-		'cancel_reply_link' => __( 'Cancel Comment', 'codexin' ),	
+		'cancel_reply_link' => __( 'Cancel Comment', 'codexin' ),
 		'comment_field' => '<div class="comment-form-comment"><fieldset>' . '<textarea id="comment" placeholder="' . __( 'Your Comment', 'codexin' ) . ( $req ? ' *' : '' ) . '" name="comment" cols="45" rows="8" aria-required="true"></textarea></fieldset></div>',
 		'label_submit' => __( 'Submit Comment', 'codexin' ),
 		'id_submit' => 'submit_my_comment'
-		
 	));
 
 

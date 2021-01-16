@@ -1,4 +1,4 @@
-<?php get_header() ?>
+<?php get_header(); ?>
 
 <div id="content" class="section site-content match-height ">
 	<div class="container">
@@ -7,54 +7,58 @@
 				<main id="primary" class="site-main">
 		
 					<?php if ( have_posts() ) : ?>
-					<?php while ( have_posts() ) : the_post() ?>
+						<?php
+						while ( have_posts() ) :
+							the_post();
+							?>
 
-					<div id="post-<?php the_ID(); ?>" <?php post_class('post-item'); ?>>
-						<?php if(has_post_thumbnail()): ?>
+					<div id="post-<?php the_ID(); ?>" <?php post_class( 'post-item' ); ?>>
+							<?php if ( has_post_thumbnail() ) : ?>
 								<div class="image-featured">
 									<?php the_post_thumbnail(); ?>
 								</div>
 						<?php endif; ?>
 
-						<h2 class="post-title"><?php the_title()?></h2>
+						<h2 class="post-title"><?php the_title(); ?></h2>
 						<div class="post-meta">	
 							
-							<div class="post-cats"><i class="fa fa-tag"></i><?php the_category( ', ' )?></div>
-							<div class="post-time"><i class="fa fa-calendar"></i> <?php the_time(get_option('date_format')); ?></div>
+							<div class="post-cats"><i class="fa fa-tag"></i><?php the_category( ', ' ); ?></div>
+							<div class="post-time"><i class="fa fa-calendar"></i> <?php the_time( get_option( 'date_format' ) ); ?></div>
 							
 						</div>
 				
 						<div class="post-excerpt">
-							<?php the_content(); 
+							<?php
+							the_content();
 
 									// This section is for pagination purpose for a long large page that is seperated using nextpage tags
-			            $args = array(
-			                'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'codexin' ) . '</span>',
-			                'after'       => '</div>',
-			                'link_before' => '<span>',
-			                'link_after'  => '</span>',
-			                'pagelink'    => '<span class="screen-reader-text">' . esc_html__( 'Page', 'codexin' ) . ' </span>%',
-			                'separator'   => '<span class="screen-reader-text">, </span>',
-			            );                 
-			            wp_link_pages( $args );
+							$args = array(
+								'before'      => '<div class="page-links"><span class="page-links-title">' . esc_html__( 'Pages:', 'codexin' ) . '</span>',
+								'after'       => '</div>',
+								'link_before' => '<span>',
+								'link_after'  => '</span>',
+								'pagelink'    => '<span class="screen-reader-text">' . esc_html__( 'Page', 'codexin' ) . ' </span>%',
+								'separator'   => '<span class="screen-reader-text">, </span>',
+							);
+							wp_link_pages( $args );
 							?>
 							
 						</div> <!-- end of post-excerpt -->
 
 
-		        <?php if(has_tag()): ?>
-			    		<div class="post-tag">
-	    			 			<?php the_tags('Tags: &nbsp;',' ',''); ?>
-			    		</div>
-		         <?php endif; ?>
+							<?php if ( has_tag() ) : ?>
+						<div class="post-tag">
+								<?php the_tags( 'Tags: &nbsp;', ' ', '' ); ?>
+						</div>
+				 <?php endif; ?>
 
-							<?php do_action('after-single-post-content'); ?>
+							<?php do_action( 'after-single-post-content' ); ?>
 					</div> <!-- end of .post-item -->
 
 					<?php endwhile ?>
 					<?php else : ?>
 
-					<?php // No posts to display ?>
+						<?php // No posts to display ?>
 
 					<?php endif ?>
 
@@ -73,7 +77,7 @@
 
 			<div class="col-sm-3 col-md-3 col-md-offset-1">
 				<aside id="secondary" class="widget-area">
-					<?php get_sidebar() ?>
+					<?php get_sidebar(); ?>
 				</aside>
 			</div><?php // #col-sm-3 ?>
 	
@@ -83,4 +87,4 @@
 
 </div><?php // #content ?>
 
-<?php get_footer() ?>
+<?php get_footer(); ?>
