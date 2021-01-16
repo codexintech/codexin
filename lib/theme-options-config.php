@@ -21,39 +21,6 @@ if ( ! class_exists( 'Redux' ) ) {
 	 *
 	 */
 
-	// $sampleHTML = '';
-	// if ( file_exists( dirname( __FILE__ ) . '/info-html.html' ) ) {
-	// Redux_Functions::initWpFilesystem();
-
-	// global $wp_filesystem;
-
-	// $sampleHTML = $wp_filesystem->get_contents( dirname( __FILE__ ) . '/info-html.html' );
-	// }
-
-	// // Background Patterns Reader
-	// $sample_patterns_path = ReduxFramework::$_dir . '../sample/patterns/';
-	// $sample_patterns_url  = ReduxFramework::$_url . '../sample/patterns/';
-	// $sample_patterns      = array();
-
-	// if ( is_dir( $sample_patterns_path ) ) {
-
-	// if ( $sample_patterns_dir = opendir( $sample_patterns_path ) ) {
-	// $sample_patterns = array();
-
-	// while ( ( $sample_patterns_file = readdir( $sample_patterns_dir ) ) !== false ) {
-
-	// if ( stristr( $sample_patterns_file, '.png' ) !== false || stristr( $sample_patterns_file, '.jpg' ) !== false ) {
-	// $name              = explode( '.', $sample_patterns_file );
-	// $name              = str_replace( '.' . end( $name ), '', $sample_patterns_file );
-	// $sample_patterns[] = array(
-	// 'alt' => $name,
-	// 'img' => $sample_patterns_url . $sample_patterns_file
-	// );
-	// }
-	// }
-	// }
-	// }
-
 	/**
 	 * ---> SET ARGUMENTS
 	 * All the possible arguments for Redux.
@@ -711,7 +678,6 @@ if ( ! class_exists( 'Redux' ) ) {
 
 				array(
 					'id'       => 'cx_image_logo',
-					'required' => array( 'cx_logo_type', 'equals', '2' ),
 					'type'     => 'media',
 					'url'      => true,
 					'title'    => esc_html__( 'Upload Logo', 'codexin' ),
@@ -1044,22 +1010,6 @@ if ( ! class_exists( 'Redux' ) ) {
 		)
 	);
 
-	if ( file_exists( dirname( __FILE__ ) . '/../README.md' ) ) {
-		$section = array(
-			'icon'   => 'el el-list-alt',
-			'title'  => __( 'Documentation', 'codexin' ),
-			'fields' => array(
-				array(
-					'id'           => '17',
-					'type'         => 'raw',
-					'markdown'     => true,
-					'content_path' => dirname( __FILE__ ) . '/../README.md', // FULL PATH, not relative please
-					// 'content' => 'Raw content here',
-				),
-			),
-		);
-		Redux::set_section( $opt_name, $section );
-	}
 	/*
 	 * <--- END SECTIONS
 	 */
