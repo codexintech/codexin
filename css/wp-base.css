@@ -1096,12 +1096,13 @@ s13 header - Mobile Menu
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
+display: block;
 }
 #mobile-menu .has-child.open > .drawer-toggle i::before {
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
-    display: block;
+   
 }
 .admin-bar div#c-menu--slide-left {
     margin-top: 46px;
