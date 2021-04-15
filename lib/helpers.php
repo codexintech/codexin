@@ -17,6 +17,9 @@ if ( ! function_exists( 'codexin_get_option' ) ) {
 		if ( $option === false ) {
 			return false;
 		}
+		if ( ! class_exists( 'ReduxFramework' ) ) {
+			return false;
+		}
 		$codexin_get_options = wp_cache_get( CODEXIN_THEME_OPTIONS );
 		if ( ! $codexin_get_options ) {
 			$codexin_get_options = get_option( CODEXIN_THEME_OPTIONS );

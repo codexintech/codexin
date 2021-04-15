@@ -11,6 +11,14 @@ else:
 	$title =  get_the_title();
 endif;
 
-get_page_title( $title );
-
 ?>
+
+<div id="page_title" class="section site-content">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1><span><?php echo $title ?></span></h1>	
+			</div>
+		</div>
+	</div>
+</div>
