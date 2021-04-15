@@ -26,16 +26,16 @@
 
 <?php
 
-	// $logo_type          	= codexin_get_option( 'cx_logo_type' );
-	// $text_logo           = codexin_get_option( 'cx_text_logo' );
+
+
 	$image_logo    = codexin_get_option( 'cx_image_logo' ) ? codexin_get_option( 'cx_image_logo' )['url'] : '#';
 	$image_logo_id = codexin_get_option( 'cx_image_logo' ) ? codexin_get_option( 'cx_image_logo' )['id'] : '#';
+	// var_dump( $image_logo );
 	// print_r(codexin_get_option( 'cx_image_logo' ));
 	// $cx_text_office_time    = codexin_get_option( 'cx_text_office_time' );
 	// $cx_text_phone          = codexin_get_option( 'cx_text_phone' );
 	// $phone_url 				= preg_replace('/[^0-9]/', '', $cx_text_phone);
 	// $cx_text_email          = codexin_get_option( 'cx_text_email' );
-
 	// $image_alt = get_post_meta($image_logo_id, '_wp_attachment_image_alt', TRUE);
 
 	$page_id   = get_queried_object_ID();

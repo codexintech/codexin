@@ -21,7 +21,7 @@
 				}
 				?>
 				<i class="fas fa-caret-right"></i>
-				<?php echo do_shortcode( '[button type="4" button_txt="' . $showcase_btn_text . '" href="' . $showcase_btn_url . '" class="text-center"]' ); ?>
+				<div class="text-center"><a class="codexin_btn_4 "  href="<?php echo $showcase_btn_url; ?>" ><?php echo $showcase_btn_text; ?></a></div>
 			</div>
 		</div>
 	</div>
