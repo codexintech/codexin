@@ -33,9 +33,15 @@ jQuery(document).ready(function($){
   	var $screen_height = $( window ).height();
 	var mastHeight = $('header.header').outerHeight();
 	var footr_height = $('footer#footer').outerHeight();
-
-	var $match_height =  $screen_height - ( mastHeight + footr_height );
-
+	var page_title = $('#page_title').outerHeight();
+	if( ! page_title ){
+		page_title = 0 ;
+	}
+	var $match_height =  $screen_height - ( mastHeight + footr_height + page_title );
+	console.log( $screen_height );
+	console.log( mastHeight );
+	console.log( footr_height );
+	console.log( page_title );
 	$('.match-height').css('min-height', $match_height);
 	$('.products-area-wrapper').css('min-height', $match_height); // product empty page
 	
