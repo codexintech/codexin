@@ -8,7 +8,6 @@ require_once 'lib/scripts.php';
 require_once 'lib/widgets.php';
 require_once 'lib/wp-debloat.php';
 require_once 'lib/helpers.php';
-require_once 'lib/color-patterns.php';
 require_once 'lib/post-type-and-texonomy.php';
 require_once 'lib/codexin-ajax.php';
 
@@ -20,6 +19,7 @@ require_once 'lib/codexin-ajax.php';
 if ( class_exists( 'ReduxFramework' ) ) {
 	if ( ! isset( $redux_demo ) && file_exists( dirname( __FILE__ ) . '/lib/theme-options-config.php' ) ) {
 		require_once dirname( __FILE__ ) . '/lib/theme-options-config.php';
+		require_once 'lib/color-patterns.php';
 	}
 }
 
