@@ -34,6 +34,7 @@
 }
 
 .redux-container #redux-header + .redux-sidebar {
+    margin-top: 44px;
     border-top: 1px solid #dedede;
 }
 

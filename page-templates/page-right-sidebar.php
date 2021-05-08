@@ -1,13 +1,14 @@
+<?php // Template Name: Page (Right Sidebar) ?>
 <?php get_header() ?>
 
 <div id="content" class="section site-content">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
-				<main id="primary" class="site-main">
+			<div class="col-12 col-sm-12 col-md-8">
+				<div id="primary" class="site-main">
 					<?php
 					if ( have_posts() ) :
-						while ( have_posts() ) : the_post(); ?>
+						while ( have_posts() ) : the_post();?>
 
 							<div id="page-<?php the_ID(); ?>" <?php post_class(array('clearfix', 'page-entry-content single-post-item')); ?>>
 								<div class="post-content">
@@ -34,7 +35,7 @@
 					endif;
 					?>
 
-				</main> <!-- end of #primary -->
+				</div> <!-- end of #primary -->
 
 				<?php
 				// If comments are open or we have at least one comment, load up the comment template.
@@ -42,7 +43,14 @@
 					comments_template();
 				endif;
 				?>
-			</div><?php // .col-sm-9 ?>
+			</div>
+
+			<div class="col-12 col-sm-12 col-md-4">
+				<aside id="secondary" class="widget-area">
+					<?php get_sidebar() ?>
+				</aside>
+			</div>
+
 		</div><?php // #content .container .row ?>
 	</div><?php // #content .container ?>
 </div><?php // #content ?>

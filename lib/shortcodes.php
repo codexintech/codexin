@@ -1,11 +1,10 @@
 <?php
 
 add_action( 'init', 'codexin_shortcodes' );
-
 function codexin_shortcodes() {
 
 	$shortcodes = array(
-		'cta_image',
+		'eys_section_title',
 	);
 
 	foreach ( $shortcodes as $shortcode ) :
@@ -14,26 +13,42 @@ function codexin_shortcodes() {
 
 }
 
-
 /*
 * Syntax:
-* [cta_image ]
+* [eys_section_title title="" class=""]
 *
 */
-
-function cta_image_shortcode( $atts, $content = null ) {
+function eys_section_title_shortcode( $atts, $content = null ) {
 	extract(
 		shortcode_atts(
-			array(),
+			array(
+				'title' => '',
+				'align' => 'left',
+				'class' => '',
+			),
 			$atts
 		)
 	);
 
-	   $result = '';
-	   ob_start();
-	?>
+	$result = '';
+	ob_start();
+
+	$classes = array();
+
+	if ( ! empty( $class ) ) {
+		$classes[] = $class;
+	}
+
+	if ( ! empty( $title ) ) {
+		?>
+
+		<div class="section-title <?php echo esc_attr( $align ); ?>-aligned">
+			<h2 class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>"><?php echo $title; ?></h2>
+		</div>
 
 		<?php
-		$result .= ob_get_clean();
-		return $result;
+	}
+
+	$result .= ob_get_clean();
+	return $result;
 }

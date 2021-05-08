@@ -1,42 +1,6 @@
 <?php
 
 /**
- *
- * Helper Function for declaring Global Variable for theme options
- **/
-if ( ! function_exists( 'codexin_get_option' ) ) {
-	/**
-	 * Function to get options in front-end
-	 *
-	 * @param int    $option The option we need from the DB
-	 * @param string $default If $option doesn't exist in DB return $default value
-	 * @return string
-	 */
-
-	function codexin_get_option( $option = false, $default = false ) {
-		if ( $option === false ) {
-			return false;
-		}
-		if ( ! class_exists( 'ReduxFramework' ) ) {
-			return false;
-		}
-		$codexin_get_options = wp_cache_get( CODEXIN_THEME_OPTIONS );
-		if ( ! $codexin_get_options ) {
-			$codexin_get_options = get_option( CODEXIN_THEME_OPTIONS );
-			wp_cache_delete( CODEXIN_THEME_OPTIONS );
-			wp_cache_add( CODEXIN_THEME_OPTIONS, $codexin_get_options );
-		}
-
-		if ( isset( $codexin_get_options[ $option ] ) && $codexin_get_options[ $option ] !== '' ) {
-			return $codexin_get_options[ $option ];
-		} else {
-			return $default;
-		}
-	}
-}
-
-
-/**
  * Single Post Navigation inside single.php files
  */
 
@@ -86,12 +50,68 @@ if ( ! function_exists( 'codexin_posts_navigation' ) ) {
 }
 
 
+/**
+ * Function for numeric pagination for posts
+ *
+ * @uses     paginate_links()
+ * @param    object $custom Name of the Custom query object.
+ * @return   mixed
+ * @since    v1.0
+ */
+function codexin_numbered_posts_nav( $custom = null ) {
+
+	global $wp_query;
+	// Stop execution if there's only 1 page.
+	if ( ( ( null !== $custom ) ? $custom->max_num_pages : $wp_query->max_num_pages ) <= 1 ) {
+		return;
+	}
+
+	ob_start();
+	?>
+			<nav class="number-pagination" aria-label="<?php echo esc_html__( 'Posts navigation', 'powerpro' ); ?>">
+			<?php
+			$current    = max( 1, absint( get_query_var( 'paged' ) ) );
+			$pagination = paginate_links(
+				array(
+					'base'      => str_replace( PHP_INT_MAX, '%#%', esc_url( get_pagenum_link( PHP_INT_MAX ) ) ),
+					'format'    => '?paged=%#%',
+					'current'   => $current,
+					'total'     => ( null !== $custom ) ? $custom->max_num_pages : $wp_query->max_num_pages,
+					'type'      => 'array',
+					'prev_text' => '<i class="fas fa-arrow-left"></i><span>Prev</span>',
+					'next_text' => '<span>Next</span><i class="fas fa-arrow-right"></i>',
+				)
+			);
+
+			if ( ! empty( $pagination ) ) {
+				?>
+					<ul class="pagination justify-content-center justify-content-md-end align-items-center flex-wrap mb-0">
+					<?php
+					foreach ( $pagination as $key => $page_link ) {
+						?>
+							<li class="paginated_link<?php echo esc_attr( ( false !== strpos( $page_link, 'current' ) ) ? ' active' : '' ); ?>"><?php echo sprintf( '%s', $page_link ); ?></li>
+						<?php
+					}
+					?>
+					</ul> <!-- end of pagination -->
+				<?php
+			}
+			?>
+			</nav> <!-- end of number-pagination -->
+		<?php
+		$links = ob_get_clean();
+		echo sprintf( '%s', apply_filters( 'codexin_numbered_posts_nav', $links ) );
+}
+
+
+
 
 /**
  * Comments Function used on comments.php
  */
 function codexin_comment_function( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment; ?>
+	$GLOBALS['comment'] = $comment;
+	?>
 	<li <?php comment_class( 'clearfix' ); ?> id="li-comment-<?php comment_ID(); ?>">
 		<div id="comment-<?php comment_ID(); ?>" class="clearfix">
 			<div class="comment-single">
@@ -126,7 +146,7 @@ function codexin_comment_function( $comment, $args, $depth ) {
 					<?php endif; ?>
 
 				</div>
-			</div>     
+			</div>
 		</div>
 	<?php
 }
@@ -220,26 +240,6 @@ if ( ! function_exists( 'codexin_adjust_color_brightness' ) ) {
 	}
 }
 
-
-if ( ! function_exists( 'codexin_header_tracking_code' ) ) {
-	/**
-	 * Add advanced tracking code to header
-	 *
-	 * @uses    add_action()
-	 * @since   v1.0
-	 */
-	function codexin_header_tracking_code() {
-		$advanced_tracking_code = codexin_get_option( 'cx_advanced_tracking_code' );
-
-		if ( $advanced_tracking_code ) {
-			printf( '%s', $advanced_tracking_code );
-		}
-	}
-	add_action( 'wp_head', 'codexin_header_tracking_code', 999 );
-}
-
-
-
 // Removing width & height from featured image
 add_filter( 'post_thumbnail_html', 'remove_thumbnail_dimensions', 10, 3 );
 function remove_thumbnail_dimensions( $html, $post_id, $post_image_id ) {
@@ -292,9 +292,9 @@ if ( ! function_exists( 'wp_get_attachment' ) ) {
 }
 
 // post thumbnail alt text
-if ( ! function_exists( 'cx_get_thumbnail_alt_text' ) ) {
+if ( ! function_exists( 'mnursing_get_thumbnail_alt_text' ) ) {
 
-	function cx_get_thumbnail_alt_text( $post_ID ) {
+	function mnursing_get_thumbnail_alt_text( $post_ID ) {
 		$thumbnail_id = get_post_thumbnail_id( $post_ID );
 		$alt          = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true );
 		// the_post_thumbnail( 'full', array( 'alt' => $alt ) );
@@ -359,30 +359,3 @@ function defer_parsing_js( $url ) {
 
 }
 // add_filter('clean_url', 'defer_parsing_js', 11, 1);
-
-
-add_filter( 'body_class', 'browser_body_class' );
-function browser_body_class( $classes ) {
-	global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
-	if ( $is_lynx ) {
-		$classes[] = 'lynx';
-	} elseif ( $is_gecko ) {
-		$classes[] = 'gecko';
-	} elseif ( $is_opera ) {
-		$classes[] = 'opera';
-	} elseif ( $is_NS4 ) {
-		$classes[] = 'ns4';
-	} elseif ( $is_safari ) {
-		$classes[] = 'safari';
-	} elseif ( $is_chrome ) {
-		$classes[] = 'chrome';
-	} elseif ( $is_IE ) {
-		$classes[] = 'ie';
-	} else {
-		$classes[] = 'unknown';
-	}
-	if ( $is_iphone ) {
-		$classes[] = 'iphone';
-	}
-	return $classes;
-}
