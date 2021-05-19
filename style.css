@@ -1966,7 +1966,8 @@ c38 Page - Other elements
 }
 
 .cx-pageloader .cx-pageloader-inner label {
-	font-size: 70px;
+	font-family: sans-serif;
+	font-size: 38px;
 	opacity: 0;
 	display: inline-block;
 	margin-bottom: 0;
