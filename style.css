@@ -60,6 +60,13 @@ c70 Responsive
 /**************************************
 c00 Global - Typography
 **************************************/
+:root {
+	--primaryColor  : #93F2D3;
+	--secondaryColor: #B3ABFF;
+	--offsetColor   : #EBE9FF;
+	--borderColor   : #DDDDDD;
+	--textColor     : #000000;
+}
 
 html,
 body {
@@ -225,19 +232,19 @@ select {
 }
 
 ::-webkit-selection {
-	background: #93F2D3;
+	background: var(--primaryColor);
 	text-shadow: none;
 	color: #fff;
 }
 
 ::-moz-selection {
-	background: #93F2D3;
+	background: var(--primaryColor);
 	text-shadow: none;
 	color: #fff;
 }
 
 ::selection {
-	background: #93F2D3;
+	background: var(--primaryColor);
 	text-shadow: none;
 	color: #fff;
 }
@@ -249,7 +256,7 @@ c01 Global - Colors
 a,
 .mn-faqs .faq-panel:not(.active) h4:hover,
 .color-primary {
-	color: #93F2D3;
+	color: var(--primaryColor);
 }
 
 a:hover,
@@ -274,7 +281,7 @@ a:focus,
 #footer_right .footer-socials a,
 .number-pagination > ul > .paginated_link.active,
 .color-secondary {
-	color: #B3ABFF;
+	color: var(--secondaryColor);
 }
 
 .sf-menu ul.sub-menu li a {
@@ -282,18 +289,18 @@ a:focus,
 }
 
 .color-hover {
-	color: #B3ABFF;
+	color:  var(--secondaryColor);
 }
 
 .color-offset {
-	color: #EBE9FF;
+	color: var(--secondaryColor);
 }
 
 .header-login a,
 .sf-menu > li > a,
 #whole .sf-menu > li > a.sf-with-ul,
 .color-text {
-	color: #000000;
+	color:  var(--textColor);
 }
 
 .h1,
@@ -333,7 +340,7 @@ h6 {
 .footer-socials a:focus,
 .section-title h2::before,
 .bgc-secondary {
-	background-color: #B3ABFF;
+	background-color: var(--secondaryColor);
 }
 
 .gform_wrapper .gform_footer input.button:hover,
@@ -343,11 +350,11 @@ h6 {
 .primary-btn:hover,
 .primary-btn:focus,
 .bgc-hover {
-	background-color: #B3ABFF;
+	background-color: var(--secondaryColor);
 }
 
 .bgc-offset {
-	background-color: #EBE9FF;
+	background-color: var(--offsetColor);
 }
 
 .gform_wrapper .gform_footer input.button:hover,
