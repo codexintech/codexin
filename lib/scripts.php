@@ -6,7 +6,7 @@ function mnursing_admin_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'mnursing_scripts' );
 function mnursing_scripts() {
-
+	wp_enqueue_style( 'eys-google-fonts', 'https://fonts.googleapis.com/css2?family=Kalam&family=Roboto:wght@300;400;700&display=swap', false );
 	// Font Awesome Icon Font.
 	wp_enqueue_style( 'fontawesome-free-5', get_template_directory_uri() . '/css/fontawesome-free-5/css/all.min.css', false, '5.0', 'all' );
 
