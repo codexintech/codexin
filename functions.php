@@ -103,14 +103,6 @@ function get_page_title( $title, $id = null ) {
 }
 
 /**
- * Enqueue Google fonts.
- */
-add_action( 'wp_enqueue_scripts', 'eys_add_google_fonts' );
-function eys_add_google_fonts() {
-	wp_enqueue_style( 'eys-google-fonts', 'https://fonts.googleapis.com/css2?family=Kalam&family=Roboto:wght@300;400;700&display=swap', false );
-}
-
-/**
  * Add ACF Options page.
  */
 if ( function_exists( 'acf_add_options_page' ) ) {
