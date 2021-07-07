@@ -359,3 +359,25 @@ function defer_parsing_js( $url ) {
 
 }
 // add_filter('clean_url', 'defer_parsing_js', 11, 1);
+
+
+
+
+function custom_body_classes_for_browser($classes)
+{
+    // the list of WordPress global browser checks
+    // https://codex.wordpress.org/Global_Variables#Browser_Detection_Booleans
+    $browsers = ['is_iphone', 'is_chrome', 'is_safari', 'is_NS4', 'is_opera', 'is_macIE', 'is_winIE', 'is_gecko', 'is_lynx', 'is_IE', 'is_edge'];
+
+    // check the globals to see if the browser is in there and return a string with the match
+    $classes[] = join(' ', array_filter($browsers, function ($browser) {
+        return $GLOBALS[$browser];
+    }));
+
+    return $classes;
+}
+
+// call the filter for the body class
+add_filter('body_class', 'custom_body_classes_for_browser');
+
+
