@@ -1,7 +1,7 @@
 /*
-Theme Name: Codexin
-Author: Themeitems
-Author URI: #
+Theme Name: SCI Digitalpractice
+Author: scidigitalpractice
+Author URI: https://scidigitalpractice.com/
 Description: Responsive Multipurpose WordPress Theme
 Version: 1.0.0
 License: GNU General Public License v2 or later
@@ -12,13 +12,13 @@ Copyright: (c) 2017 Themeitems.
 */
 
 /**************************************
-Primary Color  : #93F2D3;
+Primary Color  : #8BD40A;
 Secondary Color: #B3ABFF;
-Offset Color   : #EBE9FF;
+Offset Color   : #20272D;
 Border Color   : #DDDDDD;
-Text Color     : #000000;
+Text Color     : #20272D;
 
-Primary Font: 'Roboto', sans-serif;
+Primary Font: 'Barlow', sans-serif;
 Secondary Font: 'Kalam', cursive;
 
 c00 Global - Typography
@@ -61,11 +61,11 @@ c70 Responsive
 c00 Global - Typography
 **************************************/
 :root {
-	--primaryColor  : #93F2D3;
+	--primaryColor  : #8BD40A;
 	--secondaryColor: #B3ABFF;
-	--offsetColor   : #EBE9FF;
+	--offsetColor   : #20272D;
 	--borderColor   : #DDDDDD;
-	--textColor     : #000000;
+	--textColor     : #20272D;
 }
 
 html,
@@ -80,7 +80,7 @@ body {
 
 html,
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Barlow', sans-serif;
 	font-weight: 300;
 	font-size: 19px;
 	line-height: 1.5;
@@ -98,7 +98,6 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: 'Roboto', sans-serif;
 	font-weight: 700;
 	line-height: 1.25;
 }
@@ -256,6 +255,7 @@ c01 Global - Colors
 a,
 .mn-faqs .faq-panel:not(.active) h4:hover,
 .color-primary {
+	color: #8BD40A;
 	color: var(--primaryColor);
 }
 
@@ -315,6 +315,7 @@ h4,
 h5,
 h6 {
 	color: #000000;
+	color: var(--textColor);
 }
 
 .color-white {
@@ -327,7 +328,8 @@ h6 {
 .gform_wrapper .gform_footer input[type=submit],
 .mn-btn.primary-btn,
 .bgc-primary {
-	background-color: #93F2D3;
+	background-color: #8BD40A;
+	background-color: var(--primaryColor);
 }
 
 #toTop:hover,
@@ -581,6 +583,7 @@ input[type="tel"]:focus {
 	box-shadow: none;
 	outline: 0;
 	border-color: #93F2D3;
+	border-color: var(--primaryColor);
 }
 
 input[type="submit"],
@@ -1141,7 +1144,7 @@ c10 Header
 	height: 1px;
 	width: 1170px;
 	margin-left: -585px;
-	background: #d2f7fd;
+	/* background: #d2f7fd; */
 }
 
 /**************************************
@@ -2214,7 +2217,8 @@ c60 Footer
 
 #colophon {
 	padding-top: 75px;
-	background: #0b285b;
+	background: #20272D;
+	background: var(--offsetColor);
 	padding-bottom: 55px;
 	color: #fff;
 }
@@ -2247,7 +2251,7 @@ c70 Responsive
 
 @media only screen and (min-width: 1200px) {
 	.container {
-		max-width: 1200px;
+		max-width: 1170px;
 	}
 }
 
